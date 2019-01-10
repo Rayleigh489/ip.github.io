@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body>
+        <div id="container" style="width: 600px;height:400px;"></div>
+
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+app.title = '环形图';
+
+option = {
+     title : {
+        text: '原IP分类',
+       
+        x:'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['电影','动漫','小说','台剧','韩剧','纪实文学','神话传说','游戏',
+'美剧等西方国家剧','日剧','网络小说','戏剧','传记、回忆录']
+    },
+    series: [
+        {
+            name:'原IP',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:1, name:'电影'},
+                
+               
+                {value:4, name:'台剧'},
+                
+                {value:1, name:'纪实文学'},
+                {value:4, name:'神话传说'},
+                {value:4, name:'游戏'},
+                {value:3, name:'美剧等西方国家剧'},
+               {value:5, name:'日剧'}, 
+               {value:12, name:'韩剧'},
+               {value:22, name:'动漫'},
+               {value:62, name:'小说'},
+                {value:227, name:'网络小说'},
+                {value:3, name:'戏剧'},
+               {value:4, name:'传记、回忆录'}
+            ]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
